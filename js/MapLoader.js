@@ -25,6 +25,13 @@ class MapLoader {
 		}
 		const data = await response.json();
 		data.grids = data.grids.sort((a, b) => a.gridId > b.gridId );
+		
+		if (window.config.urlBase) {
+			data.grids.forEach(grid => {
+				grid.url = window.config.urlBase + "/" + grid.url;
+			});
+		}
+
 		return data;
 	}
 
@@ -54,12 +61,6 @@ class MapLoader {
 	}
 
 	static createMap(data) {
-		if (window.config.urlBase) {
-			data.grids.forEach(grid => {
-				grid.url = window.config.urlBase + "/" + grid.url;
-			});
-		}
-
 		const map0Extent = data.grids[0].extent;
 
 		const projection = new Projection({
