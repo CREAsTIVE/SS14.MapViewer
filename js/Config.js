@@ -5,8 +5,11 @@ const schema = {
         defaultMap: { type: "string" },
         mapListUrl: { type: "string" },
         mapDataUrl: { type: "string" }
+    },
+    optionalProperties: {
+        urlBase: { type: "string" }
     }
-}
+};
 
 class Config {
     static ajv = new Ajv();
