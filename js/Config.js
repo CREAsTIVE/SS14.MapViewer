@@ -14,10 +14,11 @@ const schema = {
 class Config {
     static ajv = new Ajv();
 
-    constructor(defaultMap, mapListUrl, mapDataUrl) {
+    constructor(defaultMap, mapListUrl, mapDataUrl, urlBase) {
         this.defaultMap = defaultMap;
         this.mapListUrl = mapListUrl;
         this.mapDataUrl = mapDataUrl;
+        this.urlBase = urlBase;
     }
 
     /**
