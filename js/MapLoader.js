@@ -30,6 +30,13 @@ class MapLoader {
 			data.grids.forEach(grid => {
 				grid.url = window.config.urlBase + "/" + grid.url;
 			});
+
+			data.parallaxLayers.forEach(layer => {
+				layer.source.url = window.config.urlBase + "/" + layer.source.url;
+				layer.layers.forEach(subLayer => {
+					subLayer.url = window.config.urlBase + "/" + subLayer.url;
+				})
+			})
 		}
 
 		return data;
